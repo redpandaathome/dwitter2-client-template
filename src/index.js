@@ -8,7 +8,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import { AuthErrorEventBus } from './context/AuthContext';
 
-const baseURL = process.env.REACT_APP_BASE_URL;
+const baseURL = 'http://localhost:3030';
 const authErrorEventBus = new AuthErrorEventBus();
 const authService = new AuthService();
 const tweetService = new TweetService(baseURL);
