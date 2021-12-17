@@ -4,14 +4,16 @@ import './index.css';
 import App from './App';
 import AuthService from './service/auth';
 import TweetService from './service/tweet';
+import HttpClient from './network/http';
 import { BrowserRouter } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import { AuthErrorEventBus } from './context/AuthContext';
 
-const baseURL = 'http://localhost:3030';
+const baseURL = process.env.REACT_APP_BASE_URL;
 const authErrorEventBus = new AuthErrorEventBus();
 const authService = new AuthService();
-const tweetService = new TweetService(baseURL);
+const httpClient = new HttpClient(baseURL)
+const tweetService = new TweetService(httpClient);
 
 ReactDOM.render(
   <React.StrictMode>
