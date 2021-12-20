@@ -7,11 +7,13 @@ export default class HttpClient {
       console.log(`FETCH>>>`, `${this.baseUrl}${url}`);
       // ✨
       const response = await fetch(`${this.baseUrl}${url}`, {
+         // 💜 '...options' comes first to keep headers below accurate! ! !
+         ...options,
          headers: { 
             'Content-Type' : 'application/json',
             ...options.headers,
          },
-         ...options })
+      })
       // ✨
       let data;
       try {
